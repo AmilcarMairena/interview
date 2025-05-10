@@ -1,0 +1,96 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Prueba tecnica",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/available-variables": {
+            "get": {
+                "tags": [
+                    "WebService"
+                ],
+                "summary": "Consuming the Variables webservice method",
+                "operationId": "getAvailbleVariables",
+                "responses": {
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Something went wrong!"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/exchange-rate-range": {
+            "post": {
+                "tags": [
+                    "WebService"
+                ],
+                "summary": "Consuming the TipoCambioRango webservice method",
+                "operationId": "getExchangeRateByRange",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "fechainit": {
+                                        "type": "string",
+                                        "example": "01/01/2025"
+                                    },
+                                    "fechafin": {
+                                        "type": "string",
+                                        "example": "30/01/2025"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": "false"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Something went wrong!"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "WebService",
+            "description": "WebService"
+        }
+    ]
+}
